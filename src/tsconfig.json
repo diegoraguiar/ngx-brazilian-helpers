@@ -1,0 +1,22 @@
+{
+    "extends": "../tsconfig.json",
+    "compilerOptions": {
+      "declaration": true,
+      "sourceMap": false,
+      "outDir": "../build",
+      "module": "es2015",
+      "types": []
+    },
+    "exclude": [
+      "main.ts",
+      "polyfills.ts",
+      "environments/*",
+      "app/app*",
+      "test.ts",
+      "**/*.spec.ts"
+    ],
+    "angularCompilerOptions": {
+      "skipMetadataEmit": false,
+      "skipTemplateCodegen": true
+    }
+  }

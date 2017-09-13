@@ -1,6 +1,6 @@
 {
   "name": "ngx-brazilian-helpers",
-  "version": "0.0.0",
+  "version": "0.0.3",
   "license": "MIT",
   "scripts": {
     "ng": "ng",
@@ -8,11 +8,11 @@
     "build": "ng build",
     "test": "ng test",
     "lint": "ng lint",
-    "e2e": "ng e2e"
+    "e2e": "ng e2e",
+    "build:package": "rm -rf ./build && ./node_modules/.bin/ngc -p ./src/tsconfig.json"
   },
-  "private": true,
+  "private": false,
   "dependencies": {
-    "@angular/animations": "^4.2.4",
     "@angular/common": "^4.2.4",
     "@angular/compiler": "^4.2.4",
     "@angular/core": "^4.2.4",
