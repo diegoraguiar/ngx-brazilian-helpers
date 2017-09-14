@@ -1,63 +1,65 @@
 import { Directive, forwardRef } from '@angular/core';
-import { NG_VALIDATORS, AbstractControl, ValidatorFn, Validator, FormControl } from '@angular/forms';
+import { NG_VALIDATORS, AbstractControl, Validator } from '@angular/forms';
 
 @Directive({
-    selector: '[cpf][ngModel], [cpf][formGroupName]',
-    providers: [
-        {
-            provide: NG_VALIDATORS,
-            useExisting: CpfValidatorDirective,
-            multi: true
-        }
-    ]
+  selector: '[cpf][ngModel], [cpf][formGroupName]',
+  providers: [
+    {
+      provide: NG_VALIDATORS,
+      useExisting: forwardRef(() => CpfValidatorDirective),
+      multi: true
+    }
+  ]
 })
 export class CpfValidatorDirective implements Validator {
 
-    validate(control: AbstractControl) {
-        if (!control.value || this.validarCpf(control.value)) {
-            return null;
-        } else {
-            return {
-                cpf: {
-                    valid: false
-                }
-            };
+  validate(control: AbstractControl) {
+    if (!control.value || this.validarCpf(control.value)) {
+      return null;
+    } else {
+      return {
+        cpf: {
+          valid: false
         }
+      };
+    }
+  }
+
+  validarCpf(cpf: string): boolean {
+    // https://jex.im/regulex/#!embed=false&flags=&re=%5C.%7C%5C-%7C%5Cs
+    const cpfSemMascara = cpf.replace(/\.|\-|\s/g, '');
+
+    if (this.isQuantidadeNumerosInvalida(cpfSemMascara) || this.isNumerosIguais(cpfSemMascara)) {
+      return false;
     }
 
-    private validarCpf(cpf: string) {
+    const numero = cpfSemMascara.substring(0, 9);
+    const digito = cpfSemMascara.substring(9, 11);
+    const primeiroDigito = this.calcularDigitoVerificador(numero, 10);
+    const segundoDigito = this.calcularDigitoVerificador(numero.concat(primeiroDigito), 11);
 
-        // https://jex.im/regulex/#!embed=false&flags=&re=%5C.%7C%5C%2F%7C%5C-%7C%5Cs
-        const cpfSemMascara = cpf.replace(/\.|\-|\s/g, '');
-        const numeroCpf = cpfSemMascara.substring(0, 9);
-        const digitoCpf = cpfSemMascara.substring(9, 11);
+    return digito === primeiroDigito.concat(segundoDigito);
+  }
 
-        if (cpfSemMascara.length !== 11) {
-            return false;
-        }
+  private isQuantidadeNumerosInvalida(cpf: string) {
+    return cpf.length !== 11;
+  }
 
-        for (let index = 0; index < 10; index++) {
-            if ('' + numeroCpf + digitoCpf === Array(12).join(String(index))) {
-                return false;
-            }
-        }
+  private isNumerosIguais(cpf: string) {
+    // https://jex.im/regulex/#!embed=false&flags=&re=%5E(%5B0-9%5D)%5C1*%24
+    return /^([0-9])\1*$/.test(cpf);
+  }
 
-        const digito1 = this.calculaDigitoCpf(numeroCpf, numeroCpf.length);
-        const digito2 = this.calculaDigitoCpf(numeroCpf + '' + digito1, numeroCpf.length + 1);
+  private calcularDigitoVerificador(digitos: string, constanteInicial: number) {
+    let somatoriaValores = 0;
 
-        return digitoCpf.toString() === digito1.toString() + digito2.toString();
+    for (let indice = 0; indice < constanteInicial; indice++) {
+      somatoriaValores += Number(digitos.charAt(indice)) * (constanteInicial - indice);
     }
 
-    private calculaDigitoCpf(numero: string, tamanho: number) {
-        let somatoria = 0;
+    const resto = somatoriaValores % 11;
 
-        for (let index = 0; index < tamanho; ++index) {
-            somatoria += Number(numero.charAt(index)) * ((tamanho + 1) - index);
-        }
-
-        const modulo = somatoria % 11;
-
-        return modulo < 2 ? 0 : 11 - modulo;
-    }
+    return String(resto < 2 ? 0 : 11 - resto);
+  }
 
 }
