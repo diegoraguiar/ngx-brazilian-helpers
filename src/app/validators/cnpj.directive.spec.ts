@@ -6,7 +6,7 @@ import { CnpjValidatorDirective } from './cnpj.directive';
 
 @Component({
   template: `
-    <form #formCnpj="ngForm">
+    <form #form="ngForm">
         <input
           type="text"
           id="cnpj"
@@ -17,8 +17,9 @@ import { CnpjValidatorDirective } from './cnpj.directive';
   `
 })
 class TestComponent {
-  @ViewChild('formCnpj')
-  formCnpj: NgForm;
+  
+  @ViewChild('form')
+  form: NgForm;
 
   cnpj: string;
 }
@@ -54,8 +55,8 @@ describe('directive: CnpjValidatorDirective', () => {
   });
 
   it('formulario deve estar valido assim que inicia', () => {
-    expect(component.formCnpj.valid).toBe(true);
-    expect(component.formCnpj.invalid).toBe(false);
+    expect(component.form.valid).toBe(true);
+    expect(component.form.invalid).toBe(false);
     expect(element).toBeTruthy();
   });
 
@@ -65,8 +66,8 @@ describe('directive: CnpjValidatorDirective', () => {
 
     fixture.whenStable().then(() => {
       fixture.detectChanges();
-      expect(component.formCnpj.invalid).toBe(true);
-      expect(component.formCnpj.valid).toBe(false);
+      expect(component.form.invalid).toBe(true);
+      expect(component.form.valid).toBe(false);
       expect(element).toBeTruthy();
     });
   }));
@@ -77,8 +78,8 @@ describe('directive: CnpjValidatorDirective', () => {
 
     fixture.whenStable().then(() => {
       fixture.detectChanges();
-      expect(component.formCnpj.valid).toBe(true);
-      expect(component.formCnpj.invalid).toBe(false);
+      expect(component.form.valid).toBe(true);
+      expect(component.form.invalid).toBe(false);
       expect(element).toBeTruthy();
     });
   }));
@@ -89,8 +90,8 @@ describe('directive: CnpjValidatorDirective', () => {
 
     fixture.whenStable().then(() => {
       fixture.detectChanges();
-      expect(component.formCnpj.valid).toBe(true);
-      expect(component.formCnpj.invalid).toBe(false);
+      expect(component.form.valid).toBe(true);
+      expect(component.form.invalid).toBe(false);
       expect(element).toBeTruthy();
     });
   }));
@@ -101,8 +102,8 @@ describe('directive: CnpjValidatorDirective', () => {
 
     fixture.whenStable().then(() => {
       fixture.detectChanges();
-      expect(component.formCnpj.valid).toBe(true);
-      expect(component.formCnpj.invalid).toBe(false);
+      expect(component.form.valid).toBe(true);
+      expect(component.form.invalid).toBe(false);
       expect(element).toBeTruthy();
     });
   }));
@@ -113,8 +114,8 @@ describe('directive: CnpjValidatorDirective', () => {
 
     fixture.whenStable().then(() => {
       fixture.detectChanges();
-      expect(component.formCnpj.valid).toBe(true);
-      expect(component.formCnpj.invalid).toBe(false);
+      expect(component.form.valid).toBe(true);
+      expect(component.form.invalid).toBe(false);
       expect(element).toBeTruthy();
     });
   }));
