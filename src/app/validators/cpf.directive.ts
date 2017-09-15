@@ -4,6 +4,7 @@ import { NG_VALIDATORS, AbstractControl, Validator } from '@angular/forms';
 import { CpfService } from './services/cpf.service';
 
 @Directive({
+  // tslint:disable-next-line:directive-selector
   selector: '[cpf][ngModel], [cpf][formGroupName]',
   providers: [
     {
