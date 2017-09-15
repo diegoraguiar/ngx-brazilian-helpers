@@ -47,26 +47,6 @@ describe('Service: CPFService', () => {
     expect(isCpfValido).toBe(false);
   }));
 
-  it('deve estar com o primeiro digito verificador valido', inject([CpfService], (service: CpfService) => {
-    let isCpfValido: boolean;
-
-    isCpfValido = service.validar('72525457501');
-    expect(isCpfValido).toBe(true);
-
-    isCpfValido = service.validar('72525457511');
-    expect(isCpfValido).toBe(false);
-  }));
-
-  it('deve estar com o segundo digito verificador valido', inject([CpfService], (service: CpfService) => {
-    let isCpfValido: boolean;
-
-    isCpfValido = service.validar('72525457501');
-    expect(isCpfValido).toBe(true);
-
-    isCpfValido = service.validar('72525457511');
-    expect(isCpfValido).toBe(false);
-  }));
-
   it('deve estar valido quando estiver mascarado', inject([CpfService], (service: CpfService) => {
     let isCpfValido: boolean;
 
