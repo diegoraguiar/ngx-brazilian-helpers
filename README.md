@@ -1,3 +1,5 @@
+[![Coverage Status](https://coveralls.io/repos/github/diegoraguiar/ngx-brazilian-helpers/badge.svg?branch=master)](https://coveralls.io/github/diegoraguiar/ngx-brazilian-helpers?branch=master)
+
 # NgxBrazilianHelpers
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 1.3.2.

@@ -16,3 +16,9 @@ install:
 script:  
   - ng test --code-coverage --single-run=true
   - npm run build:package
+
+after_success:
+  - npm run coveralls
+
+notifications:
+  email: false  
