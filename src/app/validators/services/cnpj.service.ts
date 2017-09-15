@@ -1,7 +1,7 @@
 export class CnpjService {
 
   validar(cnpj: string) {
-    // https://jex.im/regulex/#!embed=false&flags=&re=%5C.%7C%5C-%7C%5Cs
+    // https://jex.im/regulex/#!embed=false&flags=&re=%5C.%7C%5C%2F%7C%5C-%7C%5Cs
     const cnpjSemMascara = cnpj.replace(/\.|\/|\-|\s/g, '');
 
     if (this.isQuantidadeNumerosInvalida(cnpjSemMascara) || this.isNumerosIguais(cnpjSemMascara)) {
