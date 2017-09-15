@@ -15,3 +15,4 @@ install:
 
 script:  
   - npm run build:package
+  - npm test --code-coverage --single-run
