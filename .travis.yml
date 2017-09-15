@@ -14,5 +14,5 @@ install:
   - npm install
 
 script:  
-  - npm test --code-coverage --single-run=true
+  - ng test --code-coverage --single-run=true
   - npm run build:package
