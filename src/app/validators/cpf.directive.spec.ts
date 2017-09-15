@@ -6,7 +6,7 @@ import { CpfValidatorDirective } from './cpf.directive';
 
 @Component({
   template: `
-    <form #formCpf="ngForm">
+    <form #form="ngForm">
         <input
           type="text"
           id="cpf"
@@ -17,8 +17,9 @@ import { CpfValidatorDirective } from './cpf.directive';
   `
 })
 class TestComponent {
-  @ViewChild('formCpf')
-  formCpf: NgForm;
+  
+  @ViewChild('form')
+  form: NgForm;
 
   cpf: string;
 }
@@ -54,8 +55,8 @@ describe('directive: CpfValidatorDirective', () => {
   });
 
   it('formulario deve estar valido assim que inicia', () => {
-    expect(component.formCpf.valid).toBe(true);
-    expect(component.formCpf.invalid).toBe(false);
+    expect(component.form.valid).toBe(true);
+    expect(component.form.invalid).toBe(false);
     expect(element).toBeTruthy();
   });
 
@@ -65,8 +66,8 @@ describe('directive: CpfValidatorDirective', () => {
 
     fixture.whenStable().then(() => {
       fixture.detectChanges();
-      expect(component.formCpf.invalid).toBe(true);
-      expect(component.formCpf.valid).toBe(false);
+      expect(component.form.invalid).toBe(true);
+      expect(component.form.valid).toBe(false);
       expect(element).toBeTruthy();
     });
   }));
@@ -77,8 +78,8 @@ describe('directive: CpfValidatorDirective', () => {
 
     fixture.whenStable().then(() => {
       fixture.detectChanges();
-      expect(component.formCpf.valid).toBe(true);
-      expect(component.formCpf.invalid).toBe(false);
+      expect(component.form.valid).toBe(true);
+      expect(component.form.invalid).toBe(false);
       expect(element).toBeTruthy();
     });
   }));
@@ -89,8 +90,8 @@ describe('directive: CpfValidatorDirective', () => {
 
     fixture.whenStable().then(() => {
       fixture.detectChanges();
-      expect(component.formCpf.valid).toBe(true);
-      expect(component.formCpf.invalid).toBe(false);
+      expect(component.form.valid).toBe(true);
+      expect(component.form.invalid).toBe(false);
       expect(element).toBeTruthy();
     });
   }));
@@ -101,8 +102,8 @@ describe('directive: CpfValidatorDirective', () => {
 
     fixture.whenStable().then(() => {
       fixture.detectChanges();
-      expect(component.formCpf.valid).toBe(true);
-      expect(component.formCpf.invalid).toBe(false);
+      expect(component.form.valid).toBe(true);
+      expect(component.form.invalid).toBe(false);
       expect(element).toBeTruthy();
     });
   }));
@@ -113,8 +114,8 @@ describe('directive: CpfValidatorDirective', () => {
 
     fixture.whenStable().then(() => {
       fixture.detectChanges();
-      expect(component.formCpf.valid).toBe(true);
-      expect(component.formCpf.invalid).toBe(false);
+      expect(component.form.valid).toBe(true);
+      expect(component.form.invalid).toBe(false);
       expect(element).toBeTruthy();
     });
   }));
