@@ -1,0 +1,15 @@
+language: node_js
+sudo: false
+
+cache:
+  directories:
+  - node_modules
+
+before_install:
+  - nvm install $NODE_VER
+  - npm install -g npm && node -v && npm -v
+  - npm install -g @angular/cli && ng -v
+
+install:
+  - npm install
+  - npm run build:package
