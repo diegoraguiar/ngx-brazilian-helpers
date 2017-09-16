@@ -1,37 +1,30 @@
 language: node_js
 sudo: false
-
 cache:
   directories:
   - node_modules
-
 before_install:
-  - nvm install 7
-  - npm install -g npm && node -v && npm -v 
-  - npm install -g @angular/cli && ng -v
-
+- nvm install 7
+- npm install -g npm && node -v && npm -v
+- npm install -g @angular/cli && ng -v
 install:
-  - npm install
-
+- npm install
 script:
-  - ng test --code-coverage --single-run=true
-  - npm run build:package
-
+- ng test --code-coverage --single-run=true
+- npm run build:package
 after_success:
-  - npm run coveralls
-
+- npm run coveralls
+before_deploy:
+- npm version patch
 deploy:
   provider: npm
-  email: "diegoraguiar@gmail.com"
-  tag: next
+  email: diegoraguiar@gmail.com
+  api_key:
+    secure: tlyfUTduqsOHJSznlb4TENVw8KAejZW//+ZLnidyk5zROqGq+iboIrH5Rza0E2MUxubAr1DsFKd5VJwMytn5bdye72YQifaVP/+O99JpP72/8m1U97uPayOwRXnz25GasjK7k9f89OaLYTVehy5NUYMsS0xZY6j9F1kH1HowvYjTtC6X3Xisv8m9JadbcWxf717zjYTuah7oy/HBw7+DtMswZG+cziwJKG6G6Krztj3CQbZrU6t9FBW7pMeqa7cMNG06alBtW1wBUREgQkikrYqUf4cuBnc0Vx89mNdEPOocYSuw7ooN+mrHAHQ7EaHbLjhumbFb7e9HarT00y8yHCg424S65eDWqi1ZhqLurwDlgtOQ9MmWjbmzw3Se1p17VI3d04UgwzEPlFQx/uwFZGi0ME/dT29L+NK41XnWXJxFlb6Zxoa3UtA7xB0Zb3q0z/nqJBQ2j9YsveoCrVSMlM8139+WJpYr00+KwrY1zqL50rcCLJJUumfe/Eo8ZrkW/BlRmHei7WYMQwHfRjNR1y/yw5wa8XmVCm4hKkuJRPghn5m8mZT6iFr0ZLXTaJOYhfS1Ic0EeVogC0V/Ja0DhYL4WpYShVIivDSevOBmCGo3glyjf+m9eofKufETnWhyQ+0feBx17uZnNxXJYhv0GPXqJsFo9gRef+IggsMluYs=
   on:
     tags: true
-    branch: master
-  api_key:
-    secure: r5QHg57owIZqNrpghYSR1nCcdSzy5zjPIhVLsOGesl0VYvctf+ZCGb36N5/kzv38LpweVu/miMcvEyxUaowHg3767fOBT2JONA3dcD9OF7SqHu3bs5ASn5TJjx1z5swfUhkmgqrVrED7j3O0DlePg49C0yAPsH1YoMFEKRBI/5WMQOQ6IxFBBFQ7VhaZDieujSIPJ0WIKGlwi1sq6s4kFCkYFMV2nGzXABWGO01KsqWnGKk8bIv2iMkQbyYh+Ych39SE36RRGffdCQj+qQq+SpdhP6t0tIwEm1gmmdYwx4nkyd8QfH4iPAxO+QlI7C3ojrrrAhgRL9pnWIWh4PE+1ZgfhlTJRslFxm0QcNhWI0FHB09yqwfEgpkL1IV7QYvM3tS3KlvdDW+UsnJz1SicdMU9zuM/HyMlRSpVmFRe83raBuXFxqPjIOgvA+s0LFysIO3qCWCt3jT3QTQWe1ezZCvkDbgAwPgDDmRYjaBV2J7jZViXMZNCe21QfIhob91U7TjOSFdLcrxCJP48qpr/IvcyzHfytWndDlGyyZLZzCrBuJuKbIuWk5F3SxtNSpOmAuYtq+RyY4MFIntMF8FKU/hMOmRU3oQi1nspIH6xRLJCfNZaLyjyQm3Uv20eHYZnC9cS0Gy8xoIbJfAj3S9q7kdi5gyJKEmcOENt4+jKHXU=
-
+    repo: diegoraguiar/ngx-brazilian-helpers
 after_deploy:
-  - git push --tags
-
+- git push --tags
 notifications:
   email: false
