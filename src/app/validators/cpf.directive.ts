@@ -9,13 +9,13 @@ import { CpfService } from './services/cpf.service';
   providers: [
     {
       provide: NG_VALIDATORS,
-      useExisting: forwardRef(() => CpfValidatorDirective),
+      useExisting: forwardRef(() => CpfDirective),
       multi: true
     },
     CpfService
   ]
 })
-export class CpfValidatorDirective implements Validator {
+export class CpfDirective implements Validator {
 
   constructor(private cpfService: CpfService) { }
 

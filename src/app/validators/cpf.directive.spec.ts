@@ -2,7 +2,7 @@ import { By } from '@angular/platform-browser';
 import { FormsModule, NgForm } from '@angular/forms';
 import { TestBed, ComponentFixture, async } from '@angular/core/testing';
 import { Component, ViewChild, DebugElement } from '@angular/core';
-import { CpfValidatorDirective } from './cpf.directive';
+import { CpfDirective } from './cpf.directive';
 
 @Component({
   template: `
@@ -17,14 +17,14 @@ import { CpfValidatorDirective } from './cpf.directive';
   `
 })
 class TestComponent {
-  
+
   @ViewChild('form')
   form: NgForm;
 
   cpf: string;
 }
 
-describe('directive: CpfValidatorDirective', () => {
+describe('directive: CpfDirective', () => {
 
   let component: TestComponent;
   let fixture: ComponentFixture<TestComponent>;
@@ -33,14 +33,14 @@ describe('directive: CpfValidatorDirective', () => {
   beforeEach(async(() => {
     TestBed.configureTestingModule({
       imports: [FormsModule],
-      declarations: [TestComponent, CpfValidatorDirective]
+      declarations: [TestComponent, CpfDirective]
     }).compileComponents();
   }));
 
   beforeEach(() => {
     fixture = TestBed.createComponent(TestComponent);
     component = fixture.componentInstance;
-    element = fixture.debugElement.query(By.directive(CpfValidatorDirective));
+    element = fixture.debugElement.query(By.directive(CpfDirective));
 
     fixture.detectChanges();
   });

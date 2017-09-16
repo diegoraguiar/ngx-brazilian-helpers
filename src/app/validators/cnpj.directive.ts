@@ -9,13 +9,13 @@ import { CnpjService } from './services/cnpj.service';
   providers: [
     {
       provide: NG_VALIDATORS,
-      useExisting: forwardRef(() => CnpjValidatorDirective),
+      useExisting: forwardRef(() => CnpjDirective),
       multi: true
     },
     CnpjService
   ]
 })
-export class CnpjValidatorDirective implements Validator {
+export class CnpjDirective implements Validator {
 
   constructor(private cnpjService: CnpjService) { }
 

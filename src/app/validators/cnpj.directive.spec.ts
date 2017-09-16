@@ -2,7 +2,7 @@ import { By } from '@angular/platform-browser';
 import { FormsModule, NgForm } from '@angular/forms';
 import { TestBed, ComponentFixture, async } from '@angular/core/testing';
 import { Component, ViewChild, DebugElement } from '@angular/core';
-import { CnpjValidatorDirective } from './cnpj.directive';
+import { CnpjDirective } from './cnpj.directive';
 
 @Component({
   template: `
@@ -17,14 +17,14 @@ import { CnpjValidatorDirective } from './cnpj.directive';
   `
 })
 class TestComponent {
-  
+
   @ViewChild('form')
   form: NgForm;
 
   cnpj: string;
 }
 
-describe('directive: CnpjValidatorDirective', () => {
+describe('directive: CnpjDirective', () => {
 
   let component: TestComponent;
   let fixture: ComponentFixture<TestComponent>;
@@ -33,14 +33,14 @@ describe('directive: CnpjValidatorDirective', () => {
   beforeEach(async(() => {
     TestBed.configureTestingModule({
       imports: [FormsModule],
-      declarations: [TestComponent, CnpjValidatorDirective]
+      declarations: [TestComponent, CnpjDirective]
     }).compileComponents();
   }));
 
   beforeEach(() => {
     fixture = TestBed.createComponent(TestComponent);
     component = fixture.componentInstance;
-    element = fixture.debugElement.query(By.directive(CnpjValidatorDirective));
+    element = fixture.debugElement.query(By.directive(CnpjDirective));
 
     fixture.detectChanges();
   });

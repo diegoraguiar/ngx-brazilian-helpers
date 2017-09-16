@@ -1,15 +1,15 @@
 import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
 
-import { CpfValidatorDirective } from './cpf.directive';
-import { CnpjValidatorDirective } from './cnpj.directive';
+import { CpfDirective } from './cpf.directive';
+import { CnpjDirective } from './cnpj.directive';
 import { NitDirective } from './nit.directive';
 import { RenavamDirective } from './renavam.directive';
 
 @NgModule({
   declarations: [
-    CpfValidatorDirective,
-    CnpjValidatorDirective,
+    CpfDirective,
+    CnpjDirective,
     NitDirective,
     RenavamDirective
   ],
@@ -17,8 +17,8 @@ import { RenavamDirective } from './renavam.directive';
     CommonModule
   ],
   exports: [
-    CpfValidatorDirective,
-    CnpjValidatorDirective,
+    CpfDirective,
+    CnpjDirective,
     NitDirective
   ]
 })
