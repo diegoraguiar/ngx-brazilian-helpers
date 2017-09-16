@@ -19,6 +19,8 @@ script:
 
 after_success:
   - npm run coveralls
+  - npm version patch
+  - git push --follow-tags
 
 deploy:
   provider: npm
