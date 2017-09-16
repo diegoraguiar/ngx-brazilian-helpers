@@ -27,14 +27,15 @@ export class CpfService {
 
   private calcularDigitoVerificador(digitos: string, constanteInicial: number) {
     let somatoriaValores = 0;
+    const divisor = 11;
 
     for (let indice = 0; indice < constanteInicial; indice++) {
       somatoriaValores += Number(digitos.charAt(indice)) * (constanteInicial - indice);
     }
 
-    const resto = somatoriaValores % 11;
+    const resto = somatoriaValores % divisor;
 
-    return String(resto < 2 ? 0 : 11 - resto);
+    return String(resto < 2 ? 0 : divisor - resto);
   }
 
 }
