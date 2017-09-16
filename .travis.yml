@@ -5,6 +5,13 @@ sudo: false
 cache:
   directories:
   - node_modules
+addons:
+  sonarcloud:
+    organization: "diegoraguiar-github"
+    token:
+      secure: "Yd3HvhAbS5+HF92bGeUcS3TAWVhQ1Qq2iQ/tNXKjbcDdFKvYDltDkcNA+M63230zhwMp1kG7ZPKVStszgVUhWiaMdCGWASEJYXwi9R5lVGItdOhMrmHVBG9Pc07Bt+N3egZ2F2by6MUKpJqIm2TvU8Z6kXD8FOEbsuZ9ASXrYHK0/sh6eIAm9NKIJWYUn3Qp/Ocrv2THvK27C1uB6WSbxQxYUqHQozpKHYCx+Gqhyjp4VPIrBkM9Sqf7I9oG/mKYuwL670jiz+Y/AyR1mbOT6Ar6SSvoSpt0fEkzOjG2l0uLq+I84ZNwnBNy0/066sfcin7iFc8MUAQoMO1EuyqLElFzS83a5xkCSgIN0fxoAgpzZMr5GFqNSM1acLP2En44REzM+3qxE1tsxwRsq4GhZG6IFPvXK4ueVlvXseW/x+K1n08fjPMwt/cppHlunSC65FTT2xoPSjns7/0B0XdpKmIfUaYADvdgxAurbctbd69j25RmJoMa0bwMot10AAFu6hhdXMQ0us/W1CK2agyz8ZmItCyoNAZJQ6eEYtHtkR1RUWHIH6pucMOzCcM6S/SGUWpoCtrCZM0fGlFuGfCJChpa31WUC+Tvrddej6b0dpP1dzrCnS5CRyFiEjpDhrxxFERjV6VxMofRJuAmeqgvapZepRO2uZrPBH97arrZcr4="
+    branches:
+      - master
 before_install:
 - nvm install 7
 - npm install -g npm && node -v && npm -v
@@ -14,6 +21,7 @@ install:
 script:
 - ng test --code-coverage --single-run=true
 - npm run build:package
+- sonar-scanner
 after_success:
 - npm run coveralls
 deploy:

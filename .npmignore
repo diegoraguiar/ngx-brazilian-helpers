@@ -11,3 +11,4 @@ karma.conf.js
 protractor.conf.js
 tslint.json
 tsconfig.json
+sonar-project.properties
