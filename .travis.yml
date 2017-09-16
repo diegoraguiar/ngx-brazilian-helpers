@@ -12,12 +12,11 @@ before_install:
 install:
 - npm install
 script:
+- npm version patch
 - ng test --code-coverage --single-run=true
 - npm run build:package
 after_success:
 - npm run coveralls
-before_deploy:
-- npm version patch
 deploy:
   provider: npm
   email: diegoraguiar@gmail.com
