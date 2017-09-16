@@ -11,7 +11,6 @@
       "main.ts",
       "polyfills.ts",
       "environments/*",
-      "app/app*",
       "test.ts",
       "**/*.spec.ts"
     ],
