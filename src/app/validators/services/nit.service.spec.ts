@@ -14,40 +14,40 @@ describe('Service: NitService', () => {
   }));
 
   it('deve estar valido', inject([NitService], (service: NitService) => {
-    let isCnpjValido: boolean;
+    let isNitValido: boolean;
 
-    isCnpjValido = service.validar('22430859792');
-    expect(isCnpjValido).toBe(true);
+    isNitValido = service.validar('22430859792');
+    expect(isNitValido).toBe(true);
   }));
 
   it('deve possuir 11 algarismos', inject([NitService], (service: NitService) => {
-    let isCnpjValido: boolean;
+    let isNitValido: boolean;
 
-    isCnpjValido = service.validar('22430859792');
-    expect(isCnpjValido).toBe(true);
+    isNitValido = service.validar('22430859792');
+    expect(isNitValido).toBe(true);
 
-    isCnpjValido = service.validar('2243085979');
-    expect(isCnpjValido).toBe(false);
+    isNitValido = service.validar('2243085979');
+    expect(isNitValido).toBe(false);
 
-    isCnpjValido = service.validar('224308597921');
-    expect(isCnpjValido).toBe(false);
+    isNitValido = service.validar('224308597921');
+    expect(isNitValido).toBe(false);
   }));
 
   it('deve possuir pelo menos 1 algarismo diferente', inject([NitService], (service: NitService) => {
-    let isCnpjValido: boolean;
+    let isNitValido: boolean;
 
-    isCnpjValido = service.validar('22430859792');
-    expect(isCnpjValido).toBe(true);
+    isNitValido = service.validar('22430859792');
+    expect(isNitValido).toBe(true);
 
-    isCnpjValido = service.validar('11111111111');
-    expect(isCnpjValido).toBe(false);
+    isNitValido = service.validar('11111111111');
+    expect(isNitValido).toBe(false);
   }));
 
   it('deve estar valido quando estiver mascarado', inject([NitService], (service: NitService) => {
-    let isCnpjValido: boolean;
+    let isNitValido: boolean;
 
-    isCnpjValido = service.validar('136.04728.92-3');
-    expect(isCnpjValido).toBe(true);
+    isNitValido = service.validar('136.04728.92-3');
+    expect(isNitValido).toBe(true);
   }));
 
 });
