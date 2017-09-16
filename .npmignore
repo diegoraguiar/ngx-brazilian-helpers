@@ -5,6 +5,7 @@ src
 .vscode
 .gitignore
 .npmignore
+.travis.yml
 karma.conf.js
 protractor.conf.js
 tslint.json
