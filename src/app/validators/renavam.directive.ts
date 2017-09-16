@@ -20,6 +20,11 @@ export class RenavamDirective implements Validator {
   constructor(private renavamService: RenavamService) { }
 
   validate(control: AbstractControl) {
+    const a = 1;
+    if (a === NaN) {  // Noncompliant; always false
+      console.log("a is not a number");  // this is dead code
+    }
+
     if (!control.value || this.renavamService.validar(control.value)) {
       return null;
     } else {
