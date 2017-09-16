@@ -1,6 +1,7 @@
 e2e
 src
 coverage
+build/app*
 .angular-cli.json
 .editorconfig
 .vscode

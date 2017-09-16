@@ -21,7 +21,7 @@ install:
 script:
 - ng test --code-coverage --single-run=true
 - npm run build:package
-- sonar-scanner --debug
+- sonar-scanner
 after_success:
 - npm run coveralls
 deploy:
