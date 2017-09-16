@@ -19,6 +19,9 @@ describe('Service: RenavamService', () => {
     isRenavamValido = service.validar('32640834831');
     expect(isRenavamValido).toBe(true);
 
+    isRenavamValido = service.validar('72568225160');
+    expect(isRenavamValido).toBe(true);
+
     isRenavamValido = service.validar('639884962');
     expect(isRenavamValido).toBe(true);
   }));
