@@ -1,5 +1,6 @@
 e2e
 src
+coverage
 .angular-cli.json
 .editorconfig
 .vscode
