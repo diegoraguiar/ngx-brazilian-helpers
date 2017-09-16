@@ -1,4 +1,8 @@
+[![Build Status](https://travis-ci.org/diegoraguiar/ngx-brazilian-helpers.svg?branch=master)](https://travis-ci.org/diegoraguiar/ngx-brazilian-helpers)
+
 [![Coverage Status](https://coveralls.io/repos/github/diegoraguiar/ngx-brazilian-helpers/badge.svg?branch=master)](https://coveralls.io/github/diegoraguiar/ngx-brazilian-helpers?branch=master)
+
+[![npm version](https://badge.fury.io/js/ngx-brazilian-helpers.svg)](https://badge.fury.io/js/ngx-brazilian-helpers)
 
 # NgxBrazilianHelpers
 
