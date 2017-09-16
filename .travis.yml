@@ -16,19 +16,17 @@ script:
 - npm run build:package
 after_success:
 - npm run coveralls
-# before_deploy:
-# - npm version patch
+before_deploy:
+- npm version patch
 deploy:
   provider: npm
   email: diegoraguiar@gmail.com
   api_key:
     secure: tlyfUTduqsOHJSznlb4TENVw8KAejZW//+ZLnidyk5zROqGq+iboIrH5Rza0E2MUxubAr1DsFKd5VJwMytn5bdye72YQifaVP/+O99JpP72/8m1U97uPayOwRXnz25GasjK7k9f89OaLYTVehy5NUYMsS0xZY6j9F1kH1HowvYjTtC6X3Xisv8m9JadbcWxf717zjYTuah7oy/HBw7+DtMswZG+cziwJKG6G6Krztj3CQbZrU6t9FBW7pMeqa7cMNG06alBtW1wBUREgQkikrYqUf4cuBnc0Vx89mNdEPOocYSuw7ooN+mrHAHQ7EaHbLjhumbFb7e9HarT00y8yHCg424S65eDWqi1ZhqLurwDlgtOQ9MmWjbmzw3Se1p17VI3d04UgwzEPlFQx/uwFZGi0ME/dT29L+NK41XnWXJxFlb6Zxoa3UtA7xB0Zb3q0z/nqJBQ2j9YsveoCrVSMlM8139+WJpYr00+KwrY1zqL50rcCLJJUumfe/Eo8ZrkW/BlRmHei7WYMQwHfRjNR1y/yw5wa8XmVCm4hKkuJRPghn5m8mZT6iFr0ZLXTaJOYhfS1Ic0EeVogC0V/Ja0DhYL4WpYShVIivDSevOBmCGo3glyjf+m9eofKufETnWhyQ+0feBx17uZnNxXJYhv0GPXqJsFo9gRef+IggsMluYs=
   on:
-    tags: true
-    all_branches: true
-    node: '0.12'
+    branch: master
     repo: diegoraguiar/ngx-brazilian-helpers
-# after_deploy:
-# - git push --tags
+after_deploy:
+- git push --tags
 notifications:
   email: false
