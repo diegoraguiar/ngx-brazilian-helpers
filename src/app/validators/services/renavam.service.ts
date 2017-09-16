@@ -10,7 +10,7 @@ export class RenavamService {
 
     const numero = renavam.substring(0, 10);
     const digito = renavam.substring(10, 11);
-    const digitoCalculado = this.calcularDigitoVerificador(numero.split('').reverse().join(''));
+    const digitoCalculado = this.calcularDigitoVerificador(numero.split('').reverse().join(''), 8);
 
     return digito === digitoCalculado;
   }
@@ -32,7 +32,7 @@ export class RenavamService {
     return renavam;
   }
 
-  private calcularDigitoVerificador(numero: string, tamanho: number = 8) {
+  private calcularDigitoVerificador(numero: string, tamanho: number) {
     let somatoriaValores = 0;
 
     for (let indice = 0; indice < tamanho; indice++) {
