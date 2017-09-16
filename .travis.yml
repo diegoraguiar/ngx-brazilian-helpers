@@ -19,8 +19,6 @@ script:
 
 after_success:
   - npm run coveralls
-  - npm version patch
-  - git push --follow-tags
 
 deploy:
   provider: npm
@@ -28,8 +26,12 @@ deploy:
   tag: next
   on:
     tags: true
+    branch: master
   api_key:
     secure: r5QHg57owIZqNrpghYSR1nCcdSzy5zjPIhVLsOGesl0VYvctf+ZCGb36N5/kzv38LpweVu/miMcvEyxUaowHg3767fOBT2JONA3dcD9OF7SqHu3bs5ASn5TJjx1z5swfUhkmgqrVrED7j3O0DlePg49C0yAPsH1YoMFEKRBI/5WMQOQ6IxFBBFQ7VhaZDieujSIPJ0WIKGlwi1sq6s4kFCkYFMV2nGzXABWGO01KsqWnGKk8bIv2iMkQbyYh+Ych39SE36RRGffdCQj+qQq+SpdhP6t0tIwEm1gmmdYwx4nkyd8QfH4iPAxO+QlI7C3ojrrrAhgRL9pnWIWh4PE+1ZgfhlTJRslFxm0QcNhWI0FHB09yqwfEgpkL1IV7QYvM3tS3KlvdDW+UsnJz1SicdMU9zuM/HyMlRSpVmFRe83raBuXFxqPjIOgvA+s0LFysIO3qCWCt3jT3QTQWe1ezZCvkDbgAwPgDDmRYjaBV2J7jZViXMZNCe21QfIhob91U7TjOSFdLcrxCJP48qpr/IvcyzHfytWndDlGyyZLZzCrBuJuKbIuWk5F3SxtNSpOmAuYtq+RyY4MFIntMF8FKU/hMOmRU3oQi1nspIH6xRLJCfNZaLyjyQm3Uv20eHYZnC9cS0Gy8xoIbJfAj3S9q7kdi5gyJKEmcOENt4+jKHXU=
+
+after_deploy:
+  - git push --tags
 
 notifications:
   email: false
