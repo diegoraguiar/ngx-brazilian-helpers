@@ -1,5 +1,8 @@
 export class RenavamService {
 
+  private readonly TAMANHO_PADRAO_NOVO = 11;
+  private readonly TAMANHO_PADRAO_ANTIGO = 9;
+
   validar(renavam: string) {
 
     if (this.isQuantidadeNumerosInvalida(renavam) || this.isNumerosIguais(renavam)) {
@@ -16,7 +19,7 @@ export class RenavamService {
   }
 
   private isQuantidadeNumerosInvalida(renavam: string) {
-    return renavam.length !== 11 && renavam.length !== 9;
+    return renavam.length !== this.TAMANHO_PADRAO_NOVO && renavam.length !== this.TAMANHO_PADRAO_ANTIGO;
   }
 
   private isNumerosIguais(renavam: string) {
@@ -25,7 +28,7 @@ export class RenavamService {
   }
 
   private formataRenavamPadraoAntigo(renavam: string) {
-    if (renavam.length === 9) {
+    if (renavam.length === this.TAMANHO_PADRAO_ANTIGO) {
       renavam = '00'.concat(renavam);
     }
 
@@ -34,6 +37,7 @@ export class RenavamService {
 
   private calcularDigitoVerificador(numero: string, tamanho: number) {
     let somatoriaValores = 0;
+    const divisor = 11;
 
     for (let indice = 0; indice < tamanho; indice++) {
       somatoriaValores += Number(numero.charAt(indice)) * (indice + 2);
@@ -42,8 +46,8 @@ export class RenavamService {
     somatoriaValores += Number(numero.charAt(8)) * 2;
     somatoriaValores += Number(numero.charAt(9)) * 3;
 
-    const resto = somatoriaValores % 11;
-    const digitoCalculado = 11 - resto;
+    const resto = somatoriaValores % divisor;
+    const digitoCalculado = divisor - resto;
 
     return String(digitoCalculado >= 10 ? 0 : digitoCalculado);
   }

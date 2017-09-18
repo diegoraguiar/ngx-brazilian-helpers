@@ -1,5 +1,7 @@
 export class CpfService {
 
+  private readonly TAMANHO_CPF = 11;
+
   validar(cpf: string): boolean {
     // https://jex.im/regulex/#!embed=false&flags=&re=%5C.%7C%5C-%7C%5Cs
     const cpfSemMascara = cpf.replace(/\.|\-|\s/g, '');
@@ -17,7 +19,7 @@ export class CpfService {
   }
 
   private isQuantidadeNumerosInvalida(cpf: string) {
-    return cpf.length !== 11;
+    return cpf.length !== this.TAMANHO_CPF;
   }
 
   private isNumerosIguais(cpf: string) {

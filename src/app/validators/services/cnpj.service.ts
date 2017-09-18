@@ -1,5 +1,7 @@
 export class CnpjService {
 
+  private readonly TAMANHO_CNPJ = 14;
+
   validar(cnpj: string) {
     // https://jex.im/regulex/#!embed=false&flags=&re=%5C.%7C%5C%2F%7C%5C-%7C%5Cs
     const cnpjSemMascara = cnpj.replace(/\.|\/|\-|\s/g, '');
@@ -10,14 +12,14 @@ export class CnpjService {
 
     const numero = cnpjSemMascara.substring(0, 12);
     const digito = cnpjSemMascara.substring(12, 14);
-    const primeiroDigito = this.calcularDigitoVerificador(numero, 12);
-    const segundoDigito = this.calcularDigitoVerificador(numero.concat(primeiroDigito), 13);
+    const primeiroDigito = this.calcularDigitoVerificador(numero, numero.length);
+    const segundoDigito = this.calcularDigitoVerificador(numero.concat(primeiroDigito), numero.concat(primeiroDigito).length);
 
     return digito === primeiroDigito.concat(segundoDigito);
   }
 
   private isQuantidadeNumerosInvalida(cnpj: string) {
-    return cnpj.length !== 14;
+    return cnpj.length !== this.TAMANHO_CNPJ;
   }
 
   private isNumerosIguais(cnpj: string) {
@@ -28,6 +30,7 @@ export class CnpjService {
   private calcularDigitoVerificador(numero: string, tamanho: number) {
     let somatoriaValores = 0;
     let pos = tamanho - 7;
+    const divisor = 11;
 
     for (let indice = tamanho; indice >= 1; indice--) {
       somatoriaValores += Number(numero.charAt(tamanho - indice)) * pos--;
@@ -36,9 +39,9 @@ export class CnpjService {
       }
     }
 
-    const resto = somatoriaValores % 11;
+    const resto = somatoriaValores % divisor;
 
-    return String(resto < 2 ? 0 : 11 - resto);
+    return String(resto < 2 ? 0 : divisor - resto);
   }
 
 }

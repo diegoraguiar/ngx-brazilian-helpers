@@ -1,5 +1,7 @@
 export class NitService {
 
+  private readonly TAMANHO_NIT = 11;
+
   validar(nit: string) {
     // https://jex.im/regulex/#!embed=false&flags=&re=%5C.%7C%5C-%7C%5Cs
     const nitSemMascara = nit.replace(/\.|\-|\s/g, '');
@@ -16,7 +18,7 @@ export class NitService {
   }
 
   private isQuantidadeNumerosInvalida(nit: string) {
-    return nit.length !== 11;
+    return nit.length !== this.TAMANHO_NIT;
   }
 
   private isNumerosIguais(nit: string) {
@@ -27,6 +29,7 @@ export class NitService {
   private calcularDigitoVerificador(numero: string, tamanho: number) {
     let somatoriaValores = 0;
     let pos = tamanho - 7;
+    const divisor = 11;
 
     for (let indice = tamanho; indice >= 1; indice--) {
       somatoriaValores += Number(numero.charAt(tamanho - indice)) * pos--;
@@ -35,8 +38,8 @@ export class NitService {
       }
     }
 
-    const resto = somatoriaValores % 11;
-    const resultado = 11 - resto;
+    const resto = somatoriaValores % divisor;
+    const resultado = divisor - resto;
 
     return String(resultado > 9 ? 0 : resultado);
   }
