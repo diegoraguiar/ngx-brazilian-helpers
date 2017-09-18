@@ -2,8 +2,6 @@ language: node_js
 node_js:
 - '0.12'
 sudo: false
-env:
-  - PACKAGE_VERION=$(cat package.json | grep version | head -1 | awk -F= \"{ print $2 }\" | sed 's/[version:,\",]//g' | tr -d '[[:space:]]')
 cache:
   directories:
   - node_modules
@@ -23,7 +21,7 @@ install:
 script:
 - ng test --code-coverage --single-run=true
 - npm run build:package
-- sonar-scanner -Dsonar.projectVersion=$PACKAGE_VERION
+- sonar-scanner -Dsonar.projectVersion=$(cat package.json | grep version | head -1 | awk -F= \"{ print $2 }\" | sed 's/[version:,\",]//g' | tr -d '[[:space:]]')
 after_success:
 - npm run coveralls
 deploy:
