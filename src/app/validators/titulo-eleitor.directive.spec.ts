@@ -24,7 +24,7 @@ class TestComponent {
   tituloEleitor: string;
 }
 
-fdescribe('directive: TituloEleitorDirective', () => {
+describe('directive: TituloEleitorDirective', () => {
 
   let component: TestComponent;
   let fixture: ComponentFixture<TestComponent>;

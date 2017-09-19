@@ -2,7 +2,7 @@ import { TestBed, inject } from '@angular/core/testing';
 
 import { TitutoEleitorService } from './tituto-eleitor.service';
 
-fdescribe('TitutoEleitorService', () => {
+describe('TitutoEleitorService', () => {
   beforeEach(() => {
     TestBed.configureTestingModule({
       providers: [TitutoEleitorService]
