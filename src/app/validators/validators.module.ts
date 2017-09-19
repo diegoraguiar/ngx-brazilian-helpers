@@ -5,13 +5,15 @@ import { CpfDirective } from './cpf.directive';
 import { CnpjDirective } from './cnpj.directive';
 import { NitDirective } from './nit.directive';
 import { RenavamDirective } from './renavam.directive';
+import { TituloEleitorDirective } from './titulo-eleitor.directive';
 
 @NgModule({
   declarations: [
     CpfDirective,
     CnpjDirective,
     NitDirective,
-    RenavamDirective
+    RenavamDirective,
+    TituloEleitorDirective
   ],
   imports: [
     CommonModule
@@ -19,7 +21,9 @@ import { RenavamDirective } from './renavam.directive';
   exports: [
     CpfDirective,
     CnpjDirective,
-    NitDirective
+    NitDirective,
+    RenavamDirective,
+    TituloEleitorDirective
   ]
 })
 export class ValidatorsModule { }
