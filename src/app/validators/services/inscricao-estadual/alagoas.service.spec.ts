@@ -2,7 +2,7 @@ import { TestBed, inject } from '@angular/core/testing';
 
 import { AlagoasService } from './alagoas.service';
 
-fdescribe('Service: AlagoasService', () => {
+describe('Service: AlagoasService', () => {
   beforeEach(() => {
     TestBed.configureTestingModule({
       providers: [AlagoasService]
@@ -15,6 +15,7 @@ fdescribe('Service: AlagoasService', () => {
 
   it('deve estar valido', inject([AlagoasService], (service: AlagoasService) => {
     expect(service.validar('240000048')).toBe(true);
+    expect(service.validar('245458930')).toBe(true);
   }));
 
   it('deve começar com 24 que é o código do estado', inject([AlagoasService], (service: AlagoasService) => {
