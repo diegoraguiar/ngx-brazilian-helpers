@@ -2,7 +2,7 @@ import { TestBed, inject } from '@angular/core/testing';
 
 import { AmapaService } from './amapa.service';
 
-fdescribe('Service: AmapaService', () => {
+describe('Service: AmapaService', () => {
   beforeEach(() => {
     TestBed.configureTestingModule({
       providers: [AmapaService]
