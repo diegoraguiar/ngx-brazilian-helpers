@@ -12,13 +12,15 @@ export class AmazonasService {
    * @param inscricaoEstadual Número referente a inscrição estadual
    */
   validar(inscricaoEstadual: string) {
+    // https://jex.im/regulex/#!embed=false&flags=&re=%5C.%7C%5C-%7C%5Cs
+    const ieSemMascara = inscricaoEstadual.replace(/\.|\-|\s/g, '');
 
-    if (this.isQuantidadeNumerosInvalida(inscricaoEstadual)) {
+    if (this.isQuantidadeNumerosInvalida(ieSemMascara)) {
       return false;
     }
 
-    const numero = inscricaoEstadual.substring(inscricaoEstadual.length - this.TAMANHO_IE, this.TAMANHO_NUMERO);
-    const digito = inscricaoEstadual.substring(this.TAMANHO_NUMERO, inscricaoEstadual.length);
+    const numero = ieSemMascara.substring(ieSemMascara.length - this.TAMANHO_IE, this.TAMANHO_NUMERO);
+    const digito = ieSemMascara.substring(this.TAMANHO_NUMERO, ieSemMascara.length);
 
     const digitoCalculado = this.calcularDigitoVerificador(numero, this.PESOS_DIGITO_UM);
 

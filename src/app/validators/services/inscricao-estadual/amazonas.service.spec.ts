@@ -24,4 +24,8 @@ describe('Service: AmazonasService', () => {
     expect(service.validar('58871801')).toBe(false);
     expect(service.validar('5887180171')).toBe(false);
   }));
+
+  it('deve estar valido mesmo com mascara', inject([AmazonasService], (service: AmazonasService) => {
+    expect(service.validar('58.871.801-7')).toBe(true);
+  }));
 });
