@@ -31,6 +31,6 @@ describe('Service: MatoGrossoSulService', () => {
   }));
 
   it('deve estar valido mesmo com mascara', inject([MatoGrossoSulService], (service: MatoGrossoSulService) => {
-    expect(service.validar('288786092')).toBe(true);
+    expect(service.validar('28878609-2')).toBe(true);
   }));
 });
