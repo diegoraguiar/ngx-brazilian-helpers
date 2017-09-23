@@ -18,7 +18,7 @@ describe('Service: RioDeJaneiroService', () => {
     expect(service.validar('91993970')).toBe(true);
   }));
 
-  it('deve possuir 9 digitos', inject([RioDeJaneiroService], (service: RioDeJaneiroService) => {
+  it('deve possuir 8 digitos', inject([RioDeJaneiroService], (service: RioDeJaneiroService) => {
     expect(service.validar('74272681')).toBe(true);
     expect(service.validar('7427268')).toBe(false);
     expect(service.validar('742726811')).toBe(false);
