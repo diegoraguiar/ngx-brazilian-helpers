@@ -8,7 +8,7 @@ export class PernambucoService {
   private readonly PESOS_DIGITO_DOIS = [9, 8, 7, 6, 5, 4, 3, 2];
 
   /**
-   * Regra de validação aplicada: http://www.sintegra.gov.br/Cad_Estados/cad_AC.html
+   * Regra de validação aplicada: http://www.sintegra.gov.br/Cad_Estados/cad_PE.html
    *
    * @param inscricaoEstadual Número referente a inscrição estadual
    */
