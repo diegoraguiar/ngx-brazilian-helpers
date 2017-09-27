@@ -37,9 +37,8 @@ export class AlagoasService {
   }
 
   private isTipoEmpresaValido(inscricaoEstadual: string) {
-    const tiposEmpresa = [0, 3, 5, 7, 8];
-    const posicaoTipoEmpresa = 2;
-    return tiposEmpresa.includes(Number(inscricaoEstadual.charAt(posicaoTipoEmpresa)));
+    // https://jex.im/regulex/#!embed=false&flags=&re=%5E.%7B2%7D((%3F%3D0)%7C(%3F%3D3)%7C(%3F%3D5)%7C(%3F%3D7)%7C(%3F%3D8)).*%24
+    return /^.{2}((?=0)|(?=3)|(?=5)|(?=7)|(?=8)).*$/.test(inscricaoEstadual);
   }
 
   private calcularDigitoVerificador(digitos: string, fatoresMultiplicadores: Array<number>) {
