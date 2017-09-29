@@ -8,7 +8,7 @@ export class MinasGeraisService {
   private readonly PESOS_DIGITO_DOIS = [3, 2, 11, 10, 9, 8, 7, 6, 5, 4, 3, 2];
 
   /**
-   * Regra de validação aplicada: http://www.sintegra.gov.br/Cad_Estados/cad_MA.html
+   * Regra de validação aplicada: http://www.sintegra.gov.br/Cad_Estados/cad_MG.html
    *
    * @param inscricaoEstadual Número referente a inscrição estadual
    */
