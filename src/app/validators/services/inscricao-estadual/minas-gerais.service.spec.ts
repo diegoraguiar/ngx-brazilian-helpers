@@ -2,7 +2,7 @@ import { TestBed, inject } from '@angular/core/testing';
 
 import { MinasGeraisService } from './minas-gerais.service';
 
-fdescribe('Service: MinasGeraisService', () => {
+describe('Service: MinasGeraisService', () => {
   beforeEach(() => {
     TestBed.configureTestingModule({
       providers: [MinasGeraisService]
