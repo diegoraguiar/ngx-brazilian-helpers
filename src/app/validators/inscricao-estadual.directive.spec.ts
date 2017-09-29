@@ -200,3 +200,61 @@ describe('directive: InscricaoEstadualDirective - Rio de Janeiro', () => {
   }));
 
 });
+
+@Component({
+  template: `
+    <form #form="ngForm">
+        <input
+          type="text"
+          id="inscricaoEstadual"
+          name="inscricaoEstadual"
+          [(ngModel)]="inscricaoEstadual"
+          inscricaoEstadual="XX">
+    </form>
+  `
+})
+class TestXXComponent {
+  @ViewChild('form')
+  form: NgForm;
+
+  inscricaoEstadual: string;
+}
+
+describe('directive: InscricaoEstadualDirective - Estado que não existe', () => {
+
+  let component: TestXXComponent;
+  let fixture: ComponentFixture<TestXXComponent>;
+  let element: DebugElement;
+
+  beforeEach(async(() => {
+    TestBed.configureTestingModule({
+      imports: [FormsModule],
+      declarations: [TestXXComponent, InscricaoEstadualDirective]
+    }).compileComponents();
+  }));
+
+  beforeEach(() => {
+    fixture = TestBed.createComponent(TestXXComponent);
+    component = fixture.componentInstance;
+    element = fixture.debugElement.query(By.directive(InscricaoEstadualDirective));
+
+    fixture.detectChanges();
+  });
+
+  afterEach(() => {
+    fixture.destroy();
+  });
+
+  it('formulario deve estar invalido', async(() => {
+    component.inscricaoEstadual = '54080336';
+    fixture.detectChanges();
+
+    fixture.whenStable().then(() => {
+      fixture.detectChanges();
+      expect(component.form.invalid).toBe(true);
+      expect(component.form.valid).toBe(false);
+      expect(element).toBeTruthy();
+    });
+  }));
+
+});
