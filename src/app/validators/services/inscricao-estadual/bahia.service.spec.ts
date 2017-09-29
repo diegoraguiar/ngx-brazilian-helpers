@@ -2,7 +2,7 @@ import { TestBed, inject } from '@angular/core/testing';
 
 import { BahiaService } from './bahia.service';
 
-describe('Service: BahiaService', () => {
+fdescribe('Service: BahiaService', () => {
   beforeEach(() => {
     TestBed.configureTestingModule({
       providers: [BahiaService]
@@ -15,6 +15,9 @@ describe('Service: BahiaService', () => {
 
   it('deve estar valido', inject([BahiaService], (service: BahiaService) => {
     expect(service.validar('05738971')).toBe(true);
+    expect(service.validar('22080620')).toBe(true);
+    expect(service.validar('90955050')).toBe(true);
+    expect(service.validar('68458355')).toBe(true);
     expect(service.validar('100000306')).toBe(true);
   }));
 
