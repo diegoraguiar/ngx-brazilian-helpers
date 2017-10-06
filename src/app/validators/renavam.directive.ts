@@ -5,7 +5,7 @@ import { RenavamService } from './services/renavam.service';
 
 @Directive({
   // tslint:disable-next-line:directive-selector
-  selector: '[renavam][ngModel], [renavam][formGroupName]',
+  selector: '[renavam][ngModel], [renavam][formControl], [renavam][formControlName]',
   providers: [
     {
       provide: NG_VALIDATORS,

@@ -5,7 +5,7 @@ import { CnpjService } from './services/cnpj.service';
 
 @Directive({
   // tslint:disable-next-line:directive-selector
-  selector: '[cnpj][ngModel], [cnpj][formGroupName]',
+  selector: '[cnpj][ngModel], [cnpj][formControl], [cnpj][formControlName]',
   providers: [
     {
       provide: NG_VALIDATORS,

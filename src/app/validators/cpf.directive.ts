@@ -5,7 +5,7 @@ import { CpfService } from './services/cpf.service';
 
 @Directive({
   // tslint:disable-next-line:directive-selector
-  selector: '[cpf][ngModel], [cpf][formGroupName]',
+  selector: '[cpf][ngModel], [cpf][formControl], [cpf][formControlName]',
   providers: [
     {
       provide: NG_VALIDATORS,

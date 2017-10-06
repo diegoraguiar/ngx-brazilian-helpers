@@ -5,7 +5,7 @@ import { InscricaoEstadualFactory } from './services/inscricao-estadual/inscrica
 
 @Directive({
   // tslint:disable-next-line:directive-selector
-  selector: '[inscricaoEstadual][ngModel],[inscricaoEstadual][formControlName]',
+  selector: '[inscricaoEstadual][ngModel], [inscricaoEstadual][formControl], [inscricaoEstadual][formControlName]',
   providers: [
     {
       provide: NG_VALIDATORS,

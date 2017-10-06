@@ -5,7 +5,7 @@ import { NitService } from './services/nit.service';
 
 @Directive({
   // tslint:disable-next-line:directive-selector
-  selector: '[nit][ngModel], [nit][formGroupName]',
+  selector: '[nit][ngModel], [nit][formControl], [nit][formControlName]',
   providers: [
     {
       provide: NG_VALIDATORS,

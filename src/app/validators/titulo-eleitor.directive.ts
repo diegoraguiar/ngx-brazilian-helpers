@@ -5,7 +5,7 @@ import { TitutoEleitorService } from './services/tituto-eleitor.service';
 
 @Directive({
   // tslint:disable-next-line:directive-selector
-  selector: '[tituloEleitor][ngModel], [tituloEleitor][formGroupName]',
+  selector: '[tituloEleitor][ngModel], [tituloEleitor][formControl], [tituloEleitor][formControlName]',
   providers: [
     {
       provide: NG_VALIDATORS,
