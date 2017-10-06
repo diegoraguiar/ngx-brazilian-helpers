@@ -1,11 +1,11 @@
-import { CommonModule } from '@angular/common';
-import { NgModule } from '@angular/core';
+import { NgModule, ModuleWithProviders } from '@angular/core';
 
 import { CpfDirective } from './cpf.directive';
 import { CnpjDirective } from './cnpj.directive';
 import { NitDirective } from './nit.directive';
 import { RenavamDirective } from './renavam.directive';
 import { TituloEleitorDirective } from './titulo-eleitor.directive';
+import { InscricaoEstadualDirective } from './inscricao-estadual.directive';
 
 @NgModule({
   declarations: [
@@ -13,17 +13,22 @@ import { TituloEleitorDirective } from './titulo-eleitor.directive';
     CnpjDirective,
     NitDirective,
     RenavamDirective,
-    TituloEleitorDirective
-  ],
-  imports: [
-    CommonModule
+    TituloEleitorDirective,
+    InscricaoEstadualDirective
   ],
   exports: [
     CpfDirective,
     CnpjDirective,
     NitDirective,
     RenavamDirective,
-    TituloEleitorDirective
+    TituloEleitorDirective,
+    InscricaoEstadualDirective
   ]
 })
-export class ValidatorsModule { }
+export class ValidatorsModule {
+  static forRoot(): ModuleWithProviders {
+    return {
+      ngModule: ValidatorsModule
+    };
+  }
+}
