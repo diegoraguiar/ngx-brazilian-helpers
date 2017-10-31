@@ -6,6 +6,7 @@ import { NitDirective } from './nit.directive';
 import { RenavamDirective } from './renavam.directive';
 import { TituloEleitorDirective } from './titulo-eleitor.directive';
 import { InscricaoEstadualDirective } from './inscricao-estadual.directive';
+import { CnsDirective } from './cns.directive';
 
 @NgModule({
   declarations: [
@@ -22,7 +23,8 @@ import { InscricaoEstadualDirective } from './inscricao-estadual.directive';
     NitDirective,
     RenavamDirective,
     TituloEleitorDirective,
-    InscricaoEstadualDirective
+    InscricaoEstadualDirective,
+    CnsDirective
   ]
 })
 export class ValidatorsModule {

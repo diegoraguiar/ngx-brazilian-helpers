@@ -17,6 +17,7 @@
 3. **Renavam**
 4. **Titulo de Eleitor**
 5. **Inscrição Estadual**
+6. **CNS (Carteira Nacional de Saúde)**
 
 ## Usage
 Install `ngx-brazilian-helpers` via `npm`:
@@ -30,7 +31,7 @@ import { ValidatorsModule } from 'ngx-brazilian-helpers';
 
 @NgModule({
   imports: [
-    ValidatorsModule
+    ValidatorsModule.forRoot()
   ]
 })
 ```
