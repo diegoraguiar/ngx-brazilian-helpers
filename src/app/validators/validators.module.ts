@@ -15,7 +15,8 @@ import { CnsDirective } from './cns.directive';
     NitDirective,
     RenavamDirective,
     TituloEleitorDirective,
-    InscricaoEstadualDirective
+    InscricaoEstadualDirective,
+    CnsDirective
   ],
   exports: [
     CpfDirective,
