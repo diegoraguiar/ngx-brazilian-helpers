@@ -1,6 +1,6 @@
 {
   "name": "ngx-brazilian-helpers",
-  "version": "0.3.0",
+  "version": "0.3.1",
   "license": "MIT",
   "description": "The easiest and funniest way to validate Brazilian documents such as CPF, CNPJ, NIT (PIS/PASEP), Renavam, Titulo de Eleitor e Inscrição Estaual",
   "repository": {
